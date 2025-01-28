@@ -37,7 +37,7 @@ jobs:
       - name: Build iOS
         run: |
           cd ios
-          xcodebuild -workspace blockhouse.xcworkspace \
+          xcodebuild -workspace blockhouse_auth.xcworkspace \
             -scheme blockhouse \
             -configuration Release \
             -sdk iphonesimulator \
