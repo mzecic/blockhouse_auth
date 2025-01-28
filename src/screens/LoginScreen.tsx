@@ -26,7 +26,7 @@ export default function LoginScreen({navigation}: Props) {
   };
 
   const handleLogin = () => {
-    let validationErrors: {email?: string; password?: string} = {};
+    const validationErrors: {email?: string; password?: string} = {};
 
     if (!isValidEmail(email)) {
       validationErrors.email = 'Please enter a valid email address.';

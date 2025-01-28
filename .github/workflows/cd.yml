@@ -1,0 +1,70 @@
+name: CD
+
+on:
+  push:
+    branches: [main, release]
+  pull_request:
+    branches: [main, release]
+
+jobs:
+  ios:
+    name: iOS Build
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Setup Ruby (bundle)
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7.6'
+          bundler-cache: true
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          cd ios && pod install && cd ..
+
+      - name: Build iOS
+        run: |
+          cd ios
+          xcodebuild -workspace blockhouse.xcworkspace -scheme blockhouse -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14'
+
+  android:
+    name: Android Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Android
+        run: |
+          cd android
+          ./gradlew assembleRelease
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-release
+          path: android/app/build/outputs/apk/release/
