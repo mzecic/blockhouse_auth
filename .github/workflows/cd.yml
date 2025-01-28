@@ -1,5 +1,4 @@
 name: CD
-
 on:
   push:
     branches: [main, release]
@@ -10,7 +9,6 @@ jobs:
   ios:
     name: iOS Build
     runs-on: macos-latest
-
     steps:
       - uses: actions/checkout@v3
 
@@ -20,11 +18,17 @@ jobs:
           node-version: '18'
           cache: 'npm'
 
-      - name: Setup Ruby (bundle)
+      - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.7.6'
-          bundler-cache: true
+          bundler: 'latest'
+
+      - name: Install Ruby dependencies
+        run: |
+          gem install bundler
+          bundle config set deployment 'false'
+          bundle install
 
       - name: Install dependencies
         run: |
@@ -39,7 +43,6 @@ jobs:
   android:
     name: Android Build
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
 
