@@ -1,97 +1,142 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Blockhouse Auth
 
-# Getting Started
+BlockhouseAuth is a React Native starter application with preset auth screens for login and signup with modern styling, input validation, and a testing suite. It leverages modern React Native components and libraries to deliver a seamless user experience across iOS and Android platforms.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+---
 
-## Step 1: Start Metro
+## Features
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+### Login and Signup screens
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+<div style="display: flex; justify-content: space-evenly">
+<img src="./assets/images/login.png" alt="Login Screen" width="220"/>
+<img src="./assets/images/signup.png" alt="Signup Screen" width="215"/>
+</div>
 
-```sh
-# Using npm
-npm start
+---
 
-# OR using Yarn
-yarn start
+## Prerequisites
+
+Before running the app, ensure you have the following installed:
+
+- **Node.js** (>= 16.x)
+- **npm** (>= 7.x) or **yarn** (>= 1.x)
+- **Watchman**
+- **React Native CLI**
+- **Xcode** (for iOS development)
+- **Android Studio** (for Android development)
+
+---
+
+## Getting Started
+
+Follow these steps to set up and run the app locally:
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/blockhouse_auth.git
+cd blockhouse_auth
 ```
 
-## Step 2: Build and run your app
+### 2. Install Dependencies
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+```bash
+npm install
 ```
 
-### iOS
+### 3. Run the Metro Bundler
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```bash
+npx react-native start
 ```
 
-Then, and every time you update your native dependencies, run:
+### 4. Run the App
 
-```sh
-bundle exec pod install
+#### iOS:
+
+```bash
+npx pod-install
+npx react-native run-ios
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+#### Android:
 
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+```bash
+npx react-native run-android
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+---
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+## Development Workflow
 
-## Step 3: Modify your app
+### Code Linting
 
-Now that you have successfully run the app, let's make changes!
+To ensure code quality, run the linter:
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+```bash
+npm run lint
+```
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+### Running Tests
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+Run the test suite with:
 
-## Congratulations! :tada:
+```bash
+npm test
+```
 
-You've successfully run and modified your React Native App. :partying_face:
+---
 
-### Now what?
+## Folder Structure
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+```
+blockhouse_auth
+├── android               # Android-specific files
+├── ios                   # iOS-specific files
+├── src                   # Application source code
+│   ├── components        # Reusable UI components
+│   ├── screens           # App screens
+│   └── App.tsx           # Entry point
+├── babel.config.js       # Babel configuration
+├── metro.config.js       # Metro bundler configuration
+├── package.json          # Project dependencies
+└── README.md             # Project documentation
+```
 
-# Troubleshooting
+---
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## Dependencies
 
-# Learn More
+- **React Native** (https://reactnative.dev/)
+- **React Navigation** (https://reactnavigation.org/)
+- **Metro** (https://facebook.github.io/metro/)
 
-To learn more about React Native, take a look at the following resources:
+---
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository.
+2. Create a feature branch (`git checkout -b feature/your-feature`).
+3. Commit your changes (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature/your-feature`).
+5. Open a Pull Request.
+
+---
+
+## Additional Documentation
+
+- [Continuous Integration and Deployment](docs/CICD.md)
+- [Expanding the Pipeline](docs/EXPANDING_CICD.md)
+
+## License
+
+This project is for demonstration purposes only.
+
+---
+
+## Acknowledgments
+
+Special thanks to the React Native community for their excellent tools and support.

@@ -127,7 +127,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
-    fontFamily: 'CraftworkGrotesk-Regular',
   },
   input: {
     width: '80%',
@@ -137,7 +136,6 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     paddingHorizontal: 10,
     marginBottom: 16,
-    fontFamily: 'CraftworkGrotesk-Regular',
   },
   inputError: {
     borderColor: 'red',
@@ -147,7 +145,6 @@ const styles = StyleSheet.create({
     color: 'red',
     fontSize: 12,
     marginBottom: 10,
-    fontFamily: 'CraftworkGrotesk-Regular',
   },
   loginContainer: {
     flexDirection: 'row',
@@ -156,12 +153,10 @@ const styles = StyleSheet.create({
   loginText: {
     fontSize: 14,
     marginRight: 5,
-    fontFamily: 'CraftworkGrotesk-Regular',
   },
   loginLink: {
     fontSize: 14,
     color: 'black',
     fontWeight: 'bold',
-    fontFamily: 'CraftworkGrotesk-Regular',
   },
 });

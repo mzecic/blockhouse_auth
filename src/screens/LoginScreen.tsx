@@ -98,7 +98,6 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: 'bold',
     marginBottom: 30,
-    fontFamily: 'CraftworkGrotesk-Regular',
   },
   inputContainer: {
     width: '80%',
@@ -111,7 +110,6 @@ const styles = StyleSheet.create({
     borderColor: '#CCCCCC',
     borderRadius: 50,
     paddingHorizontal: 10,
-    fontFamily: 'CraftworkGrotesk-Regular',
   },
   inputError: {
     borderColor: 'red',
@@ -120,7 +118,6 @@ const styles = StyleSheet.create({
     color: 'red',
     fontSize: 12,
     marginTop: 5,
-    fontFamily: 'CraftworkGrotesk-Regular',
   },
   button: {
     width: '80%',
@@ -142,12 +139,10 @@ const styles = StyleSheet.create({
   registerText: {
     fontSize: 14,
     marginRight: 5,
-    fontFamily: 'CraftworkGrotesk-Regular',
   },
   registerLink: {
     fontSize: 14,
     color: 'black',
     fontWeight: 'bold',
-    fontFamily: 'CraftworkGrotesk-Regular',
   },
 });
