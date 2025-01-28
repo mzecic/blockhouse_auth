@@ -21,14 +21,13 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.7.6'
+          ruby-version: '3.1.4'
           bundler: 'latest'
 
       - name: Install Ruby dependencies
         run: |
-          gem install bundler
-          bundle config set deployment 'false'
-          bundle install
+          gem install bundler -v 2.4.22
+           bundle install
 
       - name: Install dependencies
         run: |
@@ -38,7 +37,17 @@ jobs:
       - name: Build iOS
         run: |
           cd ios
-          xcodebuild -workspace blockhouse.xcworkspace -scheme blockhouse -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14'
+          xcodebuild -workspace blockhouse.xcworkspace \
+            -scheme blockhouse \
+            -configuration Release \
+            -sdk iphonesimulator \
+            -destination 'platform=iOS Simulator,name=iPhone 14'
+
+      - name: Upload iOS Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ios-build
+          path: ios/build/Release-iphonesimulator/*.app
 
   android:
     name: Android Build
@@ -58,6 +67,9 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+
       - name: Install dependencies
         run: npm ci
 
@@ -66,11 +78,8 @@ jobs:
           cd android
           ./gradlew assembleRelease
 
-      - name: Upload Artifact
+      - name: Upload Android Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: app-release
-          path: android/app/build/outputs/apk/release/
-
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v2
+          name: android-release
+          path: android/app/build/outputs/apk/release/*.apk
