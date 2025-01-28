@@ -45,7 +45,7 @@ export default function LoginScreen({navigation}: Props) {
 
   // rendering the login form
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} testID="login-screen">
       <View style={styles.container}>
         <Text style={styles.title}>blockhouse</Text>
         <View style={styles.inputContainer}>

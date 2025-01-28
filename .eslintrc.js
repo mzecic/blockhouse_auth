@@ -1,5 +1,8 @@
 module.exports = {
   root: true,
+  globals: {
+    jest: 'readonly',
+  },
   extends: [
     '@react-native',
     'plugin:@typescript-eslint/recommended',

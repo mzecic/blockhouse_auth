@@ -7,6 +7,10 @@ import {RootStackParamList} from './redux/types';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
+interface AppProps {
+  onPushEvent?: () => void;
+}
+
 export default function App() {
   return (
     <NavigationContainer>

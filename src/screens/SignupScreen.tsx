@@ -62,7 +62,7 @@ export default function SignupScreen({navigation}: Props) {
   };
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} testID="signup-screen">
       <View style={styles.container}>
         <Text style={styles.title}>create an account</Text>
 
