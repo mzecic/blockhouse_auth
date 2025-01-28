@@ -45,13 +45,31 @@ cd blockhouse_auth
 npm install
 ```
 
-### 3. Run the Metro Bundler
+### 3. Rebuld native modules
 
 ```bash
-npx react-native start
+# rebuild native modules
+npm run postinstall
+# or
+npx react-native-rebuild
 ```
 
-### 4. Run the App
+### 4. Regenerate iOS Pods
+
+```bash
+cd ios
+pod install
+cd ..
+```
+
+### 5. Clean and Rebuild
+
+```bash
+# clean build cashes
+npx react-native clean-project-auto
+```
+
+### 6. Run the App
 
 #### iOS:
 
