@@ -34,6 +34,12 @@ jobs:
           npm ci
           cd ios && pod install && cd ..
 
+      - name: Disable Development Team Requirement
+        run: |
+          cd ios
+          sed -i '' 's/DevelopmentTeam = .*;/DevelopmentTeam = "";/' blockhouse_auth.xcodeproj/project.pbxproj
+          sed -i '' 's/ProvisioningStyle = Automatic;/ProvisioningStyle = Manual;/' blockhouse_auth.xcodeproj/project.pbxproj
+
       - name: Build iOS
         run: |
           cd ios
@@ -41,7 +47,9 @@ jobs:
             -scheme blockhouse_auth \
             -configuration Release \
             -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 14'
+            -destination 'platform=iOS Simulator,name=iPhone 14' \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO
 
       - name: Upload iOS Artifact
         uses: actions/upload-artifact@v3
